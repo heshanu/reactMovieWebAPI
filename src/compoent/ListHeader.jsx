@@ -1,12 +1,13 @@
 import React from 'react';
 import Search from './Search';
+import ComButton from './Search';
 
-const MovieListHeader = () => {
+const ListHeader = (props) => {
     return (
         <div>
-            <Search />
+
         </div>
     );
 }
 
-export default MovieListHeader;
+export default ListHeader;

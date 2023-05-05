@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState} from 'react';
 
-const Search = () => {
+const Search = (props) => {
+    const [search, setSearch] = useState('');
+  
+    const searchHandler = (e) => {
+        e.preventDefault();
+        setSearch(e.target.value);
+    }
+
     return (
         <div className='container-fluid'>
-            <nav class="navbar navbar-light bg-light justify-content-between">
-                <a class="navbar-brand">MovieAPI</a>
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <nav className="navbar navbar-light bg-light justify-content-between">
+                <a className="navbar-brand">MovieAPI</a>
+                <form className="form-inline">
+                    <input className="form-control mr-sm-2" value={search} type="search" placeholder={props.title} aria-label="Serch" onChange={searchHandler} />
                 </form>
             </nav>
         </div>
