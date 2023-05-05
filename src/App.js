@@ -62,8 +62,8 @@ function App() {
       <div>
         <ListHeader title="MovieAPI" />
         <div className='row'>
-          <nav className="navbar navbar-light bg-light justify-content-between">
-            <a className="navbar-brand">MovieAPI</a>
+          <nav className="navbar navbar-dark bg-dark justify-content-between">
+            <h1 style={{color:'white'}}>MovieAPI</h1>
             <form className="form-inline">
               <input className="form-control mr-sm-2" value={searchValue} type="search" placeholder="Search" aria-label="Serch" onChange={searchHandler} />
             </form>
