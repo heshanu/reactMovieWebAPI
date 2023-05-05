@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import components
 import MoiveList from '././compoent/MovieList';
 import ListHeader from './compoent/ListHeader';
+import AddFavourite from './compoent/AddFavourite';
 
 //import env
 import ClipLoader from "react-spinners/ClipLoader";
