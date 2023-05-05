@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 //import components
 import MoiveList from '././compoent/MovieList';
 import ListHeader from './compoent/ListHeader';
@@ -9,7 +10,6 @@ import AddFavourite from './compoent/AddFavourite';
 
 //import env
 import ClipLoader from "react-spinners/ClipLoader";
-
 
 const override = {
   display: "block",
@@ -22,7 +22,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [searchValue, setSearchValue] = useState('batman');
   const [movies, setMovies] = useState([]);
-
+  const [favourites, setFavourites] = useState([]);
 
   const API_KEY = 'aeaaad64';
 
@@ -49,7 +49,27 @@ function App() {
     getMovieRequest(searchValue);
   }, [searchValue]);
 
-  console.log(movies);
+  //get favourite movie from local storage
+  useEffect(() => {
+    const movieFavourites = JSON.parse(
+      localStorage.getItem('react-movie-app-favourites')
+    );
+    setFavourites(movieFavourites);
+  })
+
+  //add favourite movie
+  const AddFavouriteMovie = (movie) => {
+    const newFavouriteList = [...favourites, movie];
+    setFavourites(newFavouriteList);
+  }
+
+  //remove favourite movie
+  const RemoveFavouriteMovie = (movie) => {
+    const newFavouriteList = favourites.filter(
+      (favourite) => favourite.imdbID !== movie.imdbID
+    );
+    setFavourites(newFavouriteList);
+  }
 
   return (
     <div className="container-fluid movie-app">
@@ -61,20 +81,25 @@ function App() {
         data-testid="loader"
       />}
       <div>
-        <ListHeader title="MovieAPI" />
         <div className='row'>
           <nav className="navbar navbar-dark bg-dark justify-content-between">
-            <h1 style={{color:'white'}}>MovieAPI</h1>
+            <h1 style={{ color: 'white' }}>MovieAPI</h1>
             <form className="form-inline">
               <input className="form-control mr-sm-2" value={searchValue} type="search" placeholder="Search" aria-label="Serch" onChange={searchHandler} />
             </form>
           </nav>
         </div>
       </div>
-      <div style={{paddingLeft:100}}>
-        <MoiveList movies={movies} />
+      <div style={{ paddingLeft: 100 }}>
+        <MoiveList movies={movies} handleFavClick={AddFavouriteMovie} favouriteCompoent={AddFavourite} />
       </div>
 
+      <div className='row d-flex align-items-center mt-4 mb-4'>
+        <ListHeader title='Favourites' />
+      </div>handleFavRemove={RemoveFavouriteMovie}
+      <div className='row d-flex align-items-center mt-4 mb-4'>
+        <MoiveList movies={favourites} handleFavClick={AddFavouriteMovie} handleFavRemove={RemoveFavouriteMovie} />
+      </div>
     </div>
   );
 }

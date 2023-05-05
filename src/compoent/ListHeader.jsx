@@ -5,7 +5,7 @@ import ComButton from './Search';
 const ListHeader = (props) => {
     return (
         <div>
-
+<h2>{props.title}</h2>
         </div>
     );
 }
