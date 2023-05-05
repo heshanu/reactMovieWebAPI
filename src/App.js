@@ -59,9 +59,9 @@ function App() {
         aria-label="Loading Spinner"
         data-testid="loader"
       />}
-      <div className='row'>
+      <div>
         <ListHeader title="MovieAPI" />
-        <div className='container-fluid'>
+        <div className='row'>
           <nav className="navbar navbar-light bg-light justify-content-between">
             <a className="navbar-brand">MovieAPI</a>
             <form className="form-inline">
@@ -70,9 +70,10 @@ function App() {
           </nav>
         </div>
       </div>
-      <div className='row image-container'>
+      <div style={{paddingLeft:100}}>
         <MoiveList movies={movies} />
       </div>
+
     </div>
   );
 }

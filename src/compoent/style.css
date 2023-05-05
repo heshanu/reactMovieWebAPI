@@ -1,0 +1,10 @@
+.c {
+  width: 300px;
+  display: inline-block;
+  height: 300px;
+  align-items: center;
+  margin: 10px;
+  background-color: black;
+  border-radius: 10px;
+}
+

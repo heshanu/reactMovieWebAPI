@@ -8,18 +8,19 @@ body {
   flex-wrap: nowrap;
 }
 
+
 .image-container {
   position: relative;
+  display: inline-block;
   width: 100%;
-  transition: transform 0.20s ease-in-out;
+  transition: transform 0.50s ease-in-out;
 }
+
 
 .image-container:hover {
   cursor: pointer;
  transform: scale(1.1);
 }
 
-.image-container .overlay {
-  cursor: pointer;
-  transform: scale(2.1);
-}
+
+
