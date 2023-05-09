@@ -8,9 +8,17 @@ import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
 
 const App = () => {
-	const [movies, setMovies] = useState([]);
+	const [movies, setMovies] = useState([
+		{
+			Title: "Batman & Robin",
+			Year: "1997",
+			imdbID: "tt0118688",
+			Type: "movie",
+			Poster: "https://m.media-amazon.com/images/M/MV5BZDNjOGNhN2UtNmNhMC00YjU4LWEzMmUtNzRkM2RjN2RiMjc5XkEyXkFqcGdeQXVyMTU0OTM5ODc1._V1_SX300.jpg"
+		}
+	]);
 	const [favourites, setFavourites] = useState([]);
-	const [searchValue, setSearchValue] = useState('');
+	const [searchValue, setSearchValue] = useState('batman');
 
 	const getMovieRequest = async (searchValue) => {
 		const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=aeb2b829`;
