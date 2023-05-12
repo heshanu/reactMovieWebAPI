@@ -17,7 +17,7 @@ const App = () => {
 			Poster: "https://m.media-amazon.com/images/M/MV5BZDNjOGNhN2UtNmNhMC00YjU4LWEzMmUtNzRkM2RjN2RiMjc5XkEyXkFqcGdeQXVyMTU0OTM5ODc1._V1_SX300.jpg"
 		}
 	]);
-	const [favourites, setFavourites] = useState([]);
+	
 	const [searchValue, setSearchValue] = useState('batman');
 
 	const getMovieRequest = async (searchValue) => {
