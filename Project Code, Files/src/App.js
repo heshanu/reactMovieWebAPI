@@ -6,6 +6,7 @@ import MovieListHeading from './components/MovieListHeading';
 import SearchBox from './components/SearchBox';
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
+import FavouriteList from '../../src/compoent/FavouriteList';
 
 const App = () => {
 	const [movies, setMovies] = useState([
@@ -17,8 +18,17 @@ const App = () => {
 			Poster: "https://m.media-amazon.com/images/M/MV5BZDNjOGNhN2UtNmNhMC00YjU4LWEzMmUtNzRkM2RjN2RiMjc5XkEyXkFqcGdeQXVyMTU0OTM5ODc1._V1_SX300.jpg"
 		}
 	]);
-	
+
 	const [searchValue, setSearchValue] = useState('batman');
+	const [favourites, setFavourites] = useState([
+		{
+			Title: "Batman & Robin",
+			Year: "1997",
+			imdbID: "tt0118688",
+			Type: "movie",
+			Poster: "https://m.media-amazon.com/images/M/MV5BZDNjOGNhN2UtNmNhMC00YjU4LWEzMmUtNzRkM2RjN2RiMjc5XkEyXkFqcGdeQXVyMTU0OTM5ODc1._V1_SX300.jpg"
+		}
+	]);
 
 	const getMovieRequest = async (searchValue) => {
 		const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=aeb2b829`;
@@ -81,8 +91,8 @@ const App = () => {
 				<MovieListHeading heading='Favourites' />
 			</div>
 			<div className='row'>
-				<MovieList
-					movies={favourites}
+				<FavouriteList
+					fav={favourites}
 					handleFavouritesClick={removeFavouriteMovie}
 					favouriteComponent={RemoveFavourites}
 				/>
