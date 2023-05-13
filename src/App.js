@@ -6,8 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import components
 import MoiveList from '././compoent/MovieList';
 import ListHeader from './compoent/ListHeader';
-import AddFavourite from './compoent/AddFavourite';
-import FavouriteList from './compoent/FavouriteList';
+//import AddFavourite from './compoent/AddFavourite';
+//import FavouriteList from './compoent/FavouriteList';
 
 //import env
 import ClipLoader from "react-spinners/ClipLoader";
@@ -23,16 +23,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [searchValue, setSearchValue] = useState('batman');
   const [movies, setMovies] = useState([]);
-  const [favourites, setFavourites] = useState([
-    {
-      "Title": "Batman Begins",
-      "Year": "2005",
-      "imdbID": "tt0372784",
-      "Type": "movie",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BMTcwNzg0MDYzN15BMl5BanBnXkFtZTYwMzU5Nzg3._V1_SX300.jpg"
-
-    }
-  ]);
+  
 
   const API_KEY = 'aeaaad64';
 
@@ -65,21 +56,22 @@ function App() {
     const movieFavourites = JSON.parse(
       localStorage.getItem('react-movie-app-favourites')
     );
-    setFavourites(movieFavourites);
+    
   })
 
   //add favourite movie
+  /*
   const AddFavouriteMovie = (movie) => {
     const newFavouriteList = [...favourites, movie];
     setFavourites(newFavouriteList);
-  }
+  }*/
 
   //remove favourite movie
-  const RemoveFavouriteMovie = (movie) => {
+  /*const RemoveFavouriteMovie = (movie) => {
     const newFavouriteList = favourites.filter(
       (favourite) => favourite.imdbID !== movie.imdbID);
     setFavourites(newFavouriteList);
-  }
+  }*/
 
   return (
     <div className="container-fluid movie-app">
@@ -101,15 +93,13 @@ function App() {
         </div>
       </div>
       <div style={{ paddingLeft: 100 }}>
-        <MoiveList movies={movies} handleFavClick={AddFavouriteMovie} favouriteCompoent={AddFavourite} />
+        <MoiveList movies={movies} />
       </div>
 
       <div className='row d-flex align-items-center mt-4 mb-4'>
         <ListHeader title='Favourites' />
-      </div>handleFavRemove={RemoveFavouriteMovie}
-      <div className='row d-flex align-items-center mt-4 mb-4'>
-        <FavouriteList fav={favourites} handleFavClick={AddFavouriteMovie} handleFavRemove={RemoveFavouriteMovie} />
       </div>
+      
     </div>
   );
 }
