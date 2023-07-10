@@ -11,7 +11,6 @@ const Search = (props) => {
     return (
         <div className='container-fluid'>
             <nav className="navbar navbar-light bg-light justify-content-between">
-                <a className="navbar-brand">MovieAPI</a>
                 <form className="form-inline">
                     <input className="form-control mr-sm-2" value={search} type="search" placeholder={props.title} aria-label="Serch" onChange={searchHandler} />
                 </form>
