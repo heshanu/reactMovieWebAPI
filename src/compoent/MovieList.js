@@ -4,14 +4,9 @@ import MovieItem from './MovieItem';
 const MovieList = (props) => {
     return (
         <>
-
             {
                 props.movies && (props.movies.map((movie, index) => (
-                    <>
-                                <MovieItem key={index} movie={movie}/>
-                    </>
-                
-                    
+                    <><MovieItem key={index} movie={movie}/></>
                 )))
             }
         </>
