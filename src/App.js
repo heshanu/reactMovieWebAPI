@@ -85,7 +85,7 @@ function App() {
       <div>
         <div className='row'>
           <nav className="navbar navbar-dark bg-dark justify-content-between">
-            <h1 style={{ color: 'white' }}>MovieAPI</h1>
+            <h1 style={{ color: 'white' }} className='mt-8 mb-8 text-center bg-read items-center'>MovieAPI</h1>
             <form className="form-inline">
               <input className="form-control mr-sm-2" value={searchValue} type="search" placeholder="Search" aria-label="Serch" onChange={searchHandler} />
             </form>
